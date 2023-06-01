@@ -25,13 +25,29 @@ db.connect()
 // })
 class admin_controller {
     //get all admin
-    async index(req, res, next) {
-        if (await admin.find({})) {
-            console.log('ok')
-            res.send('ok')
-        } else {
-            console.log('no')
-        }
+    // async index(req, res, next) {
+    //     if (await admin.find({})) {
+    //         admin.then(function (user) {
+    //             console.log(user)
+    //         })
+    //         // console.log('ok')
+    //         // const data = admin.find({})
+    //         // console.log(data)
+    //         res.send('ok')
+    //     } else {
+    //         console.log('no')
+    //         console.loh('error')
+    //     }
+    // }
+    async getAllAdmin(req, res, next) {
+        await admin.find({}).then(function (user) {
+            // console.log(user)
+            res.send(user)
+        })
+    }
+    addNewAdmin(req, res, next) {
+        console.log(req.body)
+        res.send('ok')
     }
     login(req, res, next) {
         res.send('llllll')
